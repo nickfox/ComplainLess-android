@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -59,8 +58,7 @@ public class ComplainLessActivity extends ActionBarActivity {
 
     @Override
     public void onResume() {
-        Log.d(TAG, "onResume");
-        super.onResume();  // Always call the superclass method first
+        super.onResume();
 
         updateUI();
     }
@@ -87,7 +85,6 @@ public class ComplainLessActivity extends ActionBarActivity {
     }
 
     private void startOver() {
-        Log.d(TAG, "startOver");
         Toast.makeText(getApplicationContext(), R.string.start_time_reset, Toast.LENGTH_LONG).show();
 
         DateTime now = new DateTime();
@@ -97,5 +94,4 @@ public class ComplainLessActivity extends ActionBarActivity {
 
         flipMeter.setValue(0, true);
     }
-
 }
