@@ -10,7 +10,7 @@
     tools:context="com.websmithing.complainless.ComplainLessActivity">
 
     <com.websmithing.complainless.Flipmeter
-        android:id="@+id/Flipmeter"
+        android:id="@+id/flipmeter_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -18,12 +18,46 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/daysCompletedTextView"
         android:text="@string/days_completed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Flipmeter"
+        android:layout_below="@+id/flipmeter_view"
         android:layout_centerHorizontal="true"
-        style="@android:style/TextAppearance.Medium"
-        android:id="@+id/textView" />
+        style="@android:style/TextAppearance.Medium" />
 
+    <TextView
+        android:id="@+id/personalBestTextView"
+        android:text="@string/personal_best"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/daysCompletedTextView"
+        android:layout_centerHorizontal="true"
+        style="@android:style/TextAppearance.Medium" />
+
+    <TextView
+        android:id="@+id/startDateTextView"
+        android:text="@string/start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personalBestTextView"
+        android:layout_centerHorizontal="true"
+        style="@android:style/TextAppearance.Medium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/startOverButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/start_over"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
 </RelativeLayout>

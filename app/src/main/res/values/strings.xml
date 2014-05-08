@@ -4,6 +4,10 @@
     <string name="app_name">Complain Less</string>
     <string name="hello_world">Hello world!</string>
     <string name="days_completed">DAYS COMPLETED</string>
+    <string name="start_over">Start Over</string>
+    <string name="personal_best">Personal Best: 0 days</string>
+    <string name="start_date">Start Date:</string>
+    <string name="start_time_reset">Start time has been reest.</string>
     <string name="action_settings">Settings</string>
 
 </resources>
