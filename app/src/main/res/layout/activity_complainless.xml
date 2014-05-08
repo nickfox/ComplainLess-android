@@ -9,12 +9,6 @@
     android:background="@drawable/moonviewingpoint"
     tools:context="com.websmithing.complainless.ComplainLessActivity">
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView" />
-
     <com.websmithing.complainless.Flipmeter
         android:id="@+id/Flipmeter"
         android:layout_width="wrap_content"
@@ -22,5 +16,14 @@
         android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/days_completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Flipmeter"
+        android:layout_centerHorizontal="true"
+        style="@android:style/TextAppearance.Medium"
+        android:id="@+id/textView" />
 
 </RelativeLayout>

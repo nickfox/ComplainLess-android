@@ -3,6 +3,7 @@
 
     <string name="app_name">Complain Less</string>
     <string name="hello_world">Hello world!</string>
+    <string name="days_completed">DAYS COMPLETED</string>
     <string name="action_settings">Settings</string>
 
 </resources>
