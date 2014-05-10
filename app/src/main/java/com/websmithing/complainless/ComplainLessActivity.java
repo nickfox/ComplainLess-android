@@ -44,6 +44,11 @@ public class ComplainLessActivity extends ActionBarActivity {
         if (sharedPreferences.getBoolean("isFirstLaunch", true)) {
             DateTime now = new DateTime();
             SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            //DateTime dt = new DateTime().minusDays(3);
+            //editor.putLong("startDate", dt.getMillis());
+            //editor.putLong("currentBestDate", dt.getMillis());
+
             editor.putLong("startDate", now.getMillis());
             editor.putLong("currentBestDate", now.getMillis());
             editor.putBoolean("isFirstLaunch", false);
@@ -66,22 +71,37 @@ public class ComplainLessActivity extends ActionBarActivity {
     private void updateUI() {
         DateTime now = new DateTime();
         DateTime currentBestDate = new DateTime(sharedPreferences.getLong("currentBestDate", 0));
-        int numberOfDaysCompleted = Days.daysBetween(now, currentBestDate).getDays();
+        int numberOfDaysCompleted = Math.abs(Days.daysBetween(currentBestDate, now).getDays());
         int personalBestInDays = sharedPreferences.getInt("personalBestInDays", 0);
+
+        // DateTime startDate = new DateTime(sharedPreferences.getLong("startDate", 0));
+        //Log.e(TAG, "now: " + now);
+        //Log.e(TAG, "startDate: " + startDate);
+        //Log.e(TAG, "currentBestDate: " + currentBestDate);
+        //Log.e(TAG, "numberOfDaysCompleted: " + numberOfDaysCompleted);
+        //Log.e(TAG, "personalBestInDays: " + personalBestInDays);
 
         if (numberOfDaysCompleted > personalBestInDays) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("personalBestInDays", numberOfDaysCompleted);
             editor.commit();
-        }
 
-        if (numberOfDaysCompleted == 1) {
-            personalBestTextView.setText("Personal Best: 1 day");
+            if (numberOfDaysCompleted == 1) {
+                personalBestTextView.setText("Personal Best: 1 day");
+            } else {
+                personalBestTextView.setText("Personal Best: " + numberOfDaysCompleted + " days");
+            }
+
+            flipMeter.setValue(numberOfDaysCompleted, false);
         } else {
-            personalBestTextView.setText("Personal Best: " + personalBestInDays + " days");
-        }
+            if (personalBestInDays == 1) {
+                personalBestTextView.setText("Personal Best: 1 day");
+            } else {
+                personalBestTextView.setText("Personal Best: " + personalBestInDays + " days");
+            }
 
-        flipMeter.setValue(numberOfDaysCompleted, true);
+            flipMeter.setValue(personalBestInDays, false);
+        }
     }
 
     private void startOver() {
@@ -92,6 +112,6 @@ public class ComplainLessActivity extends ActionBarActivity {
         editor.putLong("currentBestDate", now.getMillis());
         editor.commit();
 
-        flipMeter.setValue(0, true);
+        flipMeter.setValue(0, false);
     }
 }
